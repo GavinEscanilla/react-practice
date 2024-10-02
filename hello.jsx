@@ -1,3 +1,4 @@
+const { useState } = React;
 function Hello() {
     return (
         <div>
@@ -33,6 +34,20 @@ class AddMe extends React.Component{
     )
 }
  }
+ function Text(){
+    const [input, getInput] =useState('');
+    return(
+        <div id="text">
+            <textarea onChange={(e) => getInput(e.target.value)}/>
+    <p id="textarea">{input.split('\n').map((line, index) =>(
+        <span key={index}>
+            {line}
+            <br />
+        </span>
+    ))}</p>
+      </div>
+    );
+ }
 
-// Render the Hello component into the #root div
-ReactDOM.render(<AddMe  />, document.getElementById('root'));
+
+ReactDOM.render(<Text  />, document.getElementById('root'));
